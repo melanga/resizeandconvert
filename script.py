@@ -1,3 +1,4 @@
+import os
 from os import listdir
 from PIL import Image
 
@@ -16,7 +17,7 @@ def convertWhiteImages(name):
 	final.save("c_images/" + name + ".jpg", "JPEG")
 
 
-def main():
+def processImages():
 	img_list = listdir("images/")
 	for img_name in img_list:
 		if "ic" in img_name:
@@ -24,6 +25,15 @@ def main():
 				convertBlackImages(img_name)
 			else:
 				convertWhiteImages(img_name)
+
+
+def main():
+	path = "/home/melanga/Desktop/week1/resizeandconvert/c_images"
+	try: 
+		os.mkdir(path)
+		processImages()
+	except OSError as error:
+		processImages()
 
 
 if __name__ == '__main__':

@@ -18,7 +18,7 @@ def convert_white_images(name):
 
 
 def process_images():
-	img_list = listdir("images/")
+	img_list = listdir(os.getcwd())
 	for img_name in img_list:
 		if "ic" in img_name:
 			if "black" in img_name:
@@ -28,7 +28,7 @@ def process_images():
 
 
 def main():
-	path = "/home/melanga/Desktop/week1/resizeandconvert/c_images"
+	path = "/home/student-03-77fe129c61a3/opt/icons"
 	try: 
 		os.mkdir(path)
 		process_images()
